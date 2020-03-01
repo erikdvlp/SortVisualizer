@@ -47,7 +47,7 @@ public class Draw extends JPanel
         {
             g.setColor(Color.white);
             for (int i = 0; i < bars.length; i++)
-                g.fillRect(i*10, 500-bars[i], 5, bars[i]);
+                g.fillRect(i*10+5, 500-bars[i], 5, bars[i]);
         }
     }
 
@@ -61,6 +61,6 @@ public class Draw extends JPanel
     @Override
     public Dimension getPreferredSize()
     {
-        return new Dimension(800, 500);
+        return new Dimension(1005, 500);
     }
 }
