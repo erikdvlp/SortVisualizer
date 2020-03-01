@@ -21,28 +21,13 @@ public class App
 
     public static void runTests()
     {
-        //create tests
-        int[] test1 = {3, 4, 2, 6, 9, 3, 0};
-        int[] test2 = {53,89,150,36,633,233};
-        int[] test3 = {0,-22,5,13,55,-980,7,110};
-        int[] test4 = {100,100,0,5,95,1050};
-        int[] test5 = {89,55,57,54,12,51,54,93,55,6,26,45,79,99,40,84,67,78,5,6,57,14,56,56,25,11,10,35,83,65,11,12,84,92,45,58,49,38,39,4,40,12,29,91,18,85,13,65,65,100,46,47,100,58,42,38,1,54,87,8,66,9,8,28,68,86,25,17,91,91,23,51,75,38,99,24,69,93,11,14,56,42,28,41,18,92,83,85,66,42,13,71,7,49,100,12,74,65,58,25};
-        int[] test6 = new int[50];
-        int[] test7 = {0};
-        Random rand = new Random();
-        for (int i = 0; i < 50; i++)
-        {
-            int n = rand.nextInt(10000);
-            test6[i] = n;
-        }
-        int[][] tests = {test1,test2,test3,test4,test5,test6,test7};
+        //numbers to sort
+        int[] feed = {908, 73, 502, 701, 905, 781, 171, 330, 242, 448, 804, 315, 264, 59, 21, 396, 740, 334, 358, 934, 207, 452, 368, 321, 320, 350, 455, 719, 504, 155, 157, 267, 858, 143, 766, 538, 311, 703, 481, 50, 356, 980, 646, 314, 48, 861, 797, 831, 450, 203, 545, 623, 530, 710, 978, 911, 933, 395, 607, 691, 474, 901, 57, 541, 661, 63, 562, 381, 836, 205, 942, 868, 472, 144, 846, 273, 629, 193, 808, 415, 408, 998, 200, 255, 66, 979, 322, 812, 54, 533, 922, 728, 431, 165, 405, 332, 485, 256, 763, 900};
 
         //run algorithm
-        String runMsg = String.format("\nRunning %d tests...", tests.length);
-        System.out.println(runMsg);
+        System.out.println("\nRunning...");
         long startTime = System.nanoTime();
-        for (int[] test : tests)
-            radixSort(test); //change sort type
+        mergeSort(feed); //change sort type
         long stopTime = System.nanoTime();
         double runTime = (stopTime-startTime) * 0.000001;
         String timeMsg = String.format("Execution time: %.2f ms\n", runTime);
