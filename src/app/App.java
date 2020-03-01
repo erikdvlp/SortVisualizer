@@ -19,9 +19,8 @@ public class App {
         Draw.updateBars(feed);
 
         //run algorithm
-        System.out.println("Sorting");
         long startTime = System.nanoTime();
-        bubbleSort(feed); //change sort type
+        selectionSort(feed); //change sort type
         long stopTime = System.nanoTime();
         double runTime = (stopTime - startTime) * 0.000001;
         String timeMsg = String.format("Execution time: %.2f ms\n", runTime);
@@ -80,6 +79,7 @@ public class App {
             for (int j = i+1; j < nums.length; j++)
                 if (nums[j] < nums[minIndex]) minIndex = j;
             if (minIndex != i) nums = swap(nums, i, minIndex);
+            microUpdate(nums, 70000);
         }
 
         return nums;

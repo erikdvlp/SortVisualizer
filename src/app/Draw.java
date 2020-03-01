@@ -53,7 +53,6 @@ public class Draw extends JPanel
 
     public static void updateBars(int[] b)
     {
-        System.out.println("Updating bars");
         bars = b;
         frame.getContentPane().repaint();
     }
