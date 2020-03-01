@@ -1,25 +1,16 @@
 package app;
 
-import java.util.Random;
 import java.util.Arrays;
-import javax.swing.*;
 
 public class App
 {
     public static void main(String[] args) throws Exception
     {
-        initWindow();
-        runTests();
+        Draw.initWindow();
+        runSort();
     }
 
-    public static void initWindow()
-    {
-        JFrame frame = new JFrame();
-        frame.setSize(500,500);
-        frame.setVisible(true);
-    }
-
-    public static void runTests()
+    public static void runSort()
     {
         //numbers to sort
         int[] feed = {908, 73, 502, 701, 905, 781, 171, 330, 242, 448, 804, 315, 264, 59, 21, 396, 740, 334, 358, 934, 207, 452, 368, 321, 320, 350, 455, 719, 504, 155, 157, 267, 858, 143, 766, 538, 311, 703, 481, 50, 356, 980, 646, 314, 48, 861, 797, 831, 450, 203, 545, 623, 530, 710, 978, 911, 933, 395, 607, 691, 474, 901, 57, 541, 661, 63, 562, 381, 836, 205, 942, 868, 472, 144, 846, 273, 629, 193, 808, 415, 408, 998, 200, 255, 66, 979, 322, 812, 54, 533, 922, 728, 431, 165, 405, 332, 485, 256, 763, 900};
