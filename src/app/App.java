@@ -20,7 +20,7 @@ public class App {
 
         //run algorithm
         long startTime = System.nanoTime();
-        selectionSort(feed); //change sort type
+        quickSort(feed); //change sort type
         long stopTime = System.nanoTime();
         double runTime = (stopTime - startTime) * 0.000001;
         String timeMsg = String.format("Execution time: %.2f ms\n", runTime);
@@ -136,6 +136,7 @@ public class App {
                 nums = swap(nums, l, r);
                 l++;
                 r--;
+                microUpdate(nums, 30000);
             }
         }
 
