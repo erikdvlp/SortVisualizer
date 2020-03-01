@@ -1,19 +1,21 @@
 package app;
 
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
-public class App
-{
-    public static void main(String[] args) throws Exception
-    {
+public class App {
+    public static void main(String[] args) throws Exception {
         Draw.initWindow();
         runSort();
     }
 
-    public static void runSort()
-    {
-        //numbers to sort
-        int[] feed = {295,125,10,440,435,480,185,65,5,55,210,255,285,220,250,325,145,415,25,205,100,135,200,360,420,130,30,80,175,495,45,160,155,345,405,265,380,470,350,20,180,320,315,310,460,370,230,485,490,465,385,90,375,50,430,105,110,215,445,450,170,270,330,355,475,365,70,425,455,225,140,235,150,395,95,300,195,390,290,35,260,240,400,410,340,500,40,335,85,190,75,60,245,15,115,165,120,275,305,280};
+    public static void runSort() {
+        // numbers to sort
+        int[] feed = { 295, 125, 10, 440, 435, 480, 185, 65, 5, 55, 210, 255, 285, 220, 250, 325, 145, 415, 25, 205,
+                100, 135, 200, 360, 420, 130, 30, 80, 175, 495, 45, 160, 155, 345, 405, 265, 380, 470, 350, 20, 180,
+                320, 315, 310, 460, 370, 230, 485, 490, 465, 385, 90, 375, 50, 430, 105, 110, 215, 445, 450, 170, 270,
+                330, 355, 475, 365, 70, 425, 455, 225, 140, 235, 150, 395, 95, 300, 195, 390, 290, 35, 260, 240, 400,
+                410, 340, 500, 40, 335, 85, 190, 75, 60, 245, 15, 115, 165, 120, 275, 305, 280 };
         Draw.updateBars(feed);
 
         //run algorithm
@@ -21,9 +23,20 @@ public class App
         long startTime = System.nanoTime();
         bubbleSort(feed); //change sort type
         long stopTime = System.nanoTime();
-        double runTime = (stopTime-startTime) * 0.000001;
+        double runTime = (stopTime - startTime) * 0.000001;
         String timeMsg = String.format("Execution time: %.2f ms\n", runTime);
         System.out.println(timeMsg);
+    }
+
+    //update window on operation
+    public static void microUpdate(int[] nums, int ms)
+    {
+        try
+        {
+            Draw.updateBars(nums);
+            TimeUnit.MICROSECONDS.sleep(ms);
+        }
+        catch (InterruptedException e) { e.printStackTrace(); }
     }
 
     //print array to console
@@ -52,6 +65,7 @@ public class App
             for (int j = i+1; j < nums.length; j++)
             {
                 if (nums[i] > nums[j]) nums = swap(nums, i, j);
+                microUpdate(nums, 1);
             }
         }
         return nums;
